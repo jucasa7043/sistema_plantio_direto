@@ -36,15 +36,10 @@
   color: var(--forest);
 }
 
-.monogram {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border: 1px solid var(--forest);
-  border-radius: 50%;
-  font-size: .95rem;
-  letter-spacing: -.02em;
+.logo {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
 }
 
 .nav {
@@ -216,10 +211,9 @@
     gap: 10px;
   }
 
-  .monogram {
+  .logo {
     width: 36px;
     height: 36px;
-    font-size: .85rem;
   }
 
   .menuLabel {

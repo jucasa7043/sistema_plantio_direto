@@ -31,14 +31,10 @@
   color: var(--forest);
 }
 
-.monogram {
-  display: grid;
-  place-items: center;
+.logo {
   width: 38px;
   height: 38px;
-  border: 1px solid var(--forest);
-  border-radius: 50%;
-  font-size: .85rem;
+  flex-shrink: 0;
 }
 
 .main {

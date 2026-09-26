@@ -1,7 +1,9 @@
+import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { ArrowUp, ArrowUpRight } from '@/components/ui/Icons'
 import styles from './Footer.module.css'
+import logo from '@/public/logo.png'
 
 const SECTION_IDS = ['perfil', 'opinioes', 'publicacoes', 'fotos', 'apresentacoes', 'noticias', 'links']
 
@@ -24,7 +26,10 @@ export default async function Footer({ onHome = true }: { onHome?: boolean }) {
       <div className="wrap">
         <div className={styles.top}>
           <div className={styles.brand}>
-            <p className={styles.brandName}>Prof. Juca Sá</p>
+            <p className={styles.brandName}>
+              <Image src={logo} alt="" width={52} height={52} className={styles.logo} />
+              Prof. Juca Sá
+            </p>
             <p className={styles.brandSub}>{t('brandSub')}</p>
           </div>
 

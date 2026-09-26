@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import LangToggle from '@/components/LangToggle/LangToggle'
@@ -6,6 +7,7 @@ import ScrollRevealProvider from '@/components/ScrollRevealProvider/ScrollReveal
 import SectionHead from '@/components/ui/SectionHead'
 import { ArrowLeft } from '@/components/ui/Icons'
 import styles from './Subpage.module.css'
+import logo from '@/public/logo.png'
 
 interface Props {
   eyebrow: string
@@ -25,7 +27,7 @@ export default async function Subpage({ eyebrow, title, lead, backLabel, childre
       <header className={styles.bar}>
         <div className={`wrap ${styles.barInner}`}>
           <Link href="/" className={styles.brand}>
-            <span className={styles.monogram} aria-hidden="true">JS</span>
+            <Image src={logo} alt="" width={38} height={38} className={styles.logo} />
             <span>Prof. Juca Sá</span>
           </Link>
           <LangToggle />

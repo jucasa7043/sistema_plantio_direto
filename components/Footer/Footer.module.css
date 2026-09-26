@@ -13,10 +13,19 @@
 }
 
 .brandName {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-family: var(--serif);
   font-size: 1.8rem;
   line-height: 1.1;
   letter-spacing: -.02em;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
 }
 
 .brandSub {

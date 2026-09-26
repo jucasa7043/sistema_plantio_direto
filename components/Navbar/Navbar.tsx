@@ -1,9 +1,11 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import LangToggle from '@/components/LangToggle/LangToggle'
 import styles from './Navbar.module.css'
+import logo from '@/public/logo.png'
 
 const SECTION_IDS = ['perfil', 'opinioes', 'publicacoes', 'fotos', 'apresentacoes', 'noticias', 'links'] as const
 
@@ -62,7 +64,7 @@ export default function Navbar() {
     <header ref={headerRef} className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`wrap ${styles.inner}`}>
         <a className={styles.brand} href={locale === 'en' ? '/en' : '/'} onClick={goTop}>
-          <span className={styles.monogram} aria-hidden="true">JS</span>
+          <Image src={logo} alt="" width={44} height={44} className={styles.logo} priority />
           <span>Prof. Juca Sá</span>
         </a>
 
