@@ -11,7 +11,8 @@ type ProfileLink = { label: string; url: string }
 
 export default async function Perfil() {
   const t = await getTranslations('perfil')
-  const timeline = t.raw('timeline') as TimelineItem[]
+  // a trajetória é editável no admin e pode estar vazia
+  const timeline = (t.raw('timeline') as TimelineItem[] | undefined) ?? []
   const cardItems = t.raw('cardItems') as CardItem[]
   const links = t.raw('links') as ProfileLink[]
   const bio = t('bio1').split(/\n\s*\n/).filter(Boolean)
@@ -66,17 +67,19 @@ export default async function Perfil() {
         </div>
       </div>
 
-      <div className={`wrap ${styles.timelineWrap}`}>
-        <h3 className={`${styles.timelineTitle} reveal`}>{t('timelineTitle')}</h3>
-        <ol className={styles.timeline}>
-          {timeline.map((item, idx) => (
-            <li key={idx} className={`${styles.step} reveal reveal-delay-${idx % 3}`}>
-              <span className={styles.year}>{item.year}</span>
-              <p>{item.text}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
+      {timeline.length > 0 && (
+        <div className={`wrap ${styles.timelineWrap}`}>
+          <h3 className={`${styles.timelineTitle} reveal`}>{t('timelineTitle')}</h3>
+          <ol className={styles.timeline}>
+            {timeline.map((item, idx) => (
+              <li key={idx} className={`${styles.step} reveal reveal-delay-${idx % 3}`}>
+                <span className={styles.year}>{item.year}</span>
+                <p>{item.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
     </section>
   )
 }
