@@ -105,15 +105,21 @@
     gap: 10px;
   }
 
+  /* alturas explícitas: aspect-ratio em itens de grid gera espaços extras no Safari */
   .gallery li {
-    aspect-ratio: 1;
+    height: calc((100vw - 50px) / 2);
+    max-height: 400px;
   }
 
   .feature,
   .gallery[data-count] .feature {
     grid-column: 1 / -1;
     grid-row: auto;
-    aspect-ratio: 4 / 3;
+  }
+
+  .gallery li.feature {
+    height: calc((100vw - 40px) * .75);
+    max-height: 560px;
   }
 }
 

@@ -151,8 +151,11 @@
 }
 
 @media (max-width: 860px) {
+  /* No mobile, flex em vez de grid: o Safari infla as linhas do grid
+     quando um item usa aspect-ratio, deixando faixas vazias no hero */
   .hero {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     min-height: 0;
   }
 
@@ -162,8 +165,9 @@
   }
 
   .photo {
+    flex: none;
     min-height: 0;
-    aspect-ratio: 4 / 3;
+    height: min(75vw, 560px);
   }
 
   .caption {
