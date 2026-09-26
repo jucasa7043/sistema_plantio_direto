@@ -1,5 +1,12 @@
+import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import styles from './Opinioes.module.css'
+import revolvimento from '@/public/principios/revolvimento.webp'
+import cobertura from '@/public/principios/cobertura.webp'
+import rotacao from '@/public/principios/rotacao.webp'
+
+// ilustrações na ordem dos princípios: revolvimento, cobertura, rotação
+const ILUSTRACOES = [revolvimento, cobertura, rotacao]
 
 type Principio = { numero: number; titulo: string; descricao: string }
 type Citacao = { texto: string; fonte: string }
@@ -21,6 +28,11 @@ export default async function Opinioes() {
           <ol className={styles.pillars}>
             {principios.map((p, idx) => (
               <li key={p.numero} className={`${styles.pillar} reveal reveal-delay-${idx % 3}`}>
+                {ILUSTRACOES[idx] && (
+                  <div className={styles.art}>
+                    <Image src={ILUSTRACOES[idx]} alt="" sizes="(max-width: 860px) 60vw, 380px" className={styles.artImg} />
+                  </div>
+                )}
                 <span className={styles.number}>{String(p.numero).padStart(2, '0')}</span>
                 <h3 className={styles.pillarTitle}>{p.titulo}</h3>
                 <p>{p.descricao}</p>
