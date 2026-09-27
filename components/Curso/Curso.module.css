@@ -8,8 +8,17 @@
 .inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 40px;
+}
+
+.art {
+  flex-shrink: 0;
+  width: auto;
+  height: 132px;
+}
+
+.copy {
+  flex: 1;
 }
 
 .title {
@@ -40,5 +49,9 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 26px;
+  }
+
+  .art {
+    height: 96px;
   }
 }
